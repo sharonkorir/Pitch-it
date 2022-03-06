@@ -21,7 +21,7 @@
             <ul class="nav navbar-nav navbar-right text-end">
               {% if current_user.is_authenticated %}
               <li><a href="{{url_for('main.profile',uname=current_user.username)}}">Profile</a></li>
-              <li><a href="{{url_for('auth.logout')}}"><button type="button" class="btn btn-outline-light me-2">Sign <output></output></button></a></li>
+              <li><a href="{{url_for('auth.logout')}}"><button type="button" class="btn btn-outline-light me-2">Sign Out<output></output></button></a></li>
               {% else %}
               <li><a href="{{url_for('auth.login')}}"><button type="button" class="btn btn-warning">Sign in</button></a></li>
               {%endif%}

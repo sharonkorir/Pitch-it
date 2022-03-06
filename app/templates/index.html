@@ -1,7 +1,29 @@
 {%extends 'base.html'%}
 
+<!-- Styles block -->
+{% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
+
+<!--content block-->
 {%block content%}
-
-<h1>Testing</h1>
-
+<body class="d-flex h-100 text-center text-white bg-dark">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="jumbotron">
+        <h2 class="lead">“Why Is Having an Elevator Pitch So Important?</h2>
+        <p class="lead">You only have 30-60 seconds to make a powerful first impression. The attention span of the average person is just 30 seconds before their mind starts wandering. The other reason is people have less time today. You need to grab them quickly or lose them forever.</p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Check out pitches</a></p>
+      </div>
+    </div>
+    <!--footer-->
+    <footer class="footer bg-light">
+      <div class="container-fluid">
+        <span class="text-muted">© 2022:
+          <a href="/">Pitch-¡t</a></span>
+      </div>
+    </footer>
+  </div>
+</body>
 {%endblock%}

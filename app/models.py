@@ -42,3 +42,12 @@ class Pitch(db.Model):
 
     def __repr__(self):
         return f'Pitch {self.title}'
+
+    def save_pitch(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_reviews(cls,id):
+        pitch = Pitch.query.filter_by(pitch_id=id).all()
+        return pitch

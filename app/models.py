@@ -10,6 +10,7 @@ class User(UserMixin,db.Model):
     bio = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String())
     pass_secure = db.Column(db.String(255))
+    #pitch_id = db.Column(db.Integer,db.ForeignKey('pitch.id'))
 
     @property
     def password(self):
@@ -28,3 +29,13 @@ class User(UserMixin,db.Model):
     @login_manager.user_loader
     def load_user(user_id):
         return User.query.get(int(user_id))
+
+class Pitch(db.Model):
+    __tablename__ = 'pitch'
+    id = db.Column(db.Integer,primary_key = True)
+    content = db.Column(db.String(600))
+    #user_id = db.relationship('User', backref = 'role', lazy="dynamic")
+    category = db.Column(db.String(255))
+    upvotes = db.Column(db.Integer)
+    downvotes = db.Column(db.Integer)
+

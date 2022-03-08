@@ -1,5 +1,6 @@
 
 from flask import render_template, request, redirect, url_for, abort
+import idna
 from . import main
 from ..models import User, Pitch, Comment
 from .forms import CommentForm, UpdateProfile, PitchForm
@@ -76,17 +77,19 @@ def new_pitch():
 
     return render_template('new_pitch.html', pitch_form=form)
 
-@main.route('/pitch/comment/<int:id>', methods = ['GET','POST'])
+@main.route('/comment/<int:pitch_id>', methods = ['GET','POST'])
 @login_required
-def new_comment(id):
+def new_comment(pitch_id):
     form = CommentForm()
-    pitch = Pitch.query.get(id)
+    pitch = Pitch.query.get(pitch_id)
+    related_comments = Comment.get_comments(pitch_id)
+    user_id = pitch.user_id
+    user = User.query.filter_by(id = user_id).first()
 
     if form.validate_on_submit():
         comment = form.comment.data
-        user_id = current_user._get_current_object().id
-        new_comment = Comment(comment=comment, pitch_id=pitch, user_id = user_id)
+        new_comment = Comment(comment=comment, pitch_id = pitch_id, user_id = current_user.get_id())
         new_comment.save_comment()
-        return redirect(url_for('main.comments'))
+        return redirect(url_for('.new_comment',pitch_id = pitch_id))
 
-    return render_template('comments.html', form=form)
+    return render_template('new_comment.html', comment_form=form, pitches = pitch, comments = related_comments, user = user)

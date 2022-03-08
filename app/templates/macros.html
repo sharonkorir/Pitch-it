@@ -1,0 +1,18 @@
+{%macro displayPitch(pitch)%}
+
+  {%if pitch%}
+    {%for pitches in pitch%}
+    <div class="card">
+      <div class="card-header">{{pitches.title}}</div>
+      <div class="card-body">
+        <p class="card-title">{{pitches.content}}</p>
+        <p>{{pitches.category}}</p>
+        <p>Submitted by:{{pitches.user.username}}</p>
+      </div>
+    </div>
+    {%endfor%}
+  {%else%}
+  <p>There are no pitches in {{pitches.category}} yet</p>
+  {%endif%}
+
+{%endmacro%}

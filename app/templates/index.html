@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% import 'macros.html' as macro%}
 
 <!-- Styles block -->
 {% block styles %}
@@ -14,9 +15,40 @@
       <div class="jumbotron">
         <h2 class="lead">“Why Is Having an Elevator Pitch So Important?</h2>
         <p class="lead">You only have 30-60 seconds to make a powerful first impression. The attention span of the average person is just 30 seconds before their mind starts wandering. The other reason is people have less time today. You need to grab them quickly or lose them forever.</p>
-        <p><a class="btn btn-warning" href="#" role="button">Check out pitches</a></p>
+        <p><a class="btn btn-warning" href="#categories" role="button">Check out pitches</a></p>
       </div>
     </div>
+
+    <!--display pitches-->
+    <div class="containter">
+      <div id="categories">
+        <ul style="display: flex; justify-content: space-between;">
+          <li><a class="dropdown-item" href="#general">General</a></li>
+          <li><a class="dropdown-item" href="#business">Business/start-up</a></li>
+          <li><a class="dropdown-item" href="#pick-up">Pick-up lines</a></li>
+          <li><a class="dropdown-item" href="#books">Books/movies</a></li>
+          <li><a class="dropdown-item" href="#dad-jokes">Dad jokes</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="row">
+          <div class="col-sm-4" id="general"><h1>test</h1></div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4" id="business"><h1>test</h1></div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4" id="pick-up"><h1>test</h1></div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4" id="books"><h1>test</h1></div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4" id="dad-jokes"><h1>test</h1></div>
+        </div>
+      </div> 
+    </div>
+
     <!--footer-->
     <footer class="footer bg-light">
       <div class="container-fluid">

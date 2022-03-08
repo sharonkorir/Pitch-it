@@ -1,7 +1,8 @@
+
 from flask import render_template, request, redirect, url_for, abort
 from . import main
-from ..models import User, Pitch
-from .forms import UpdateProfile, PitchForm
+from ..models import User, Pitch, Comment
+from .forms import CommentForm, UpdateProfile, PitchForm
 from .. import db, photos
 from flask_login import login_required, current_user
 
@@ -13,9 +14,9 @@ def index():
     View root page function that returns the index page and its data
     '''
     general = Pitch.query.filter_by(category = 'general').all()
-    business = Pitch.query.filter_by(category = 'business/tech strt-up').all()
-    books = Pitch.query.filter_by(category = 'books').all()
-    pick_up = Pitch.query.filter_by(category = 'pick-up lines').all()
+    business = Pitch.query.filter_by(category = 'business/tech').all()
+    books = Pitch.query.filter_by(category = 'books/movies').all()
+    pick_up = Pitch.query.filter_by(category = 'pick-up').all()
     dad_jokes = Pitch.query.filter_by(category = 'dad jokes').all()
     title = 'Home - Pitch it in sixty'
     return render_template('index.html', title = title, general = general, business = business, books = books, pick_up = pick_up, dad_jokes = dad_jokes)
@@ -69,8 +70,23 @@ def new_pitch():
         content = form.content.data
         category = form.category.data
         user_id = current_user
-        new_pitch = Pitch(title=title, content=content, category=category, user_id=current_user._get_current_object().id)
+        new_pitch = Pitch(title=title, content=content, category=category, user_id = current_user._get_current_object().id)
         new_pitch.save_pitch()
         return redirect(url_for('main.index'))
 
     return render_template('new_pitch.html', pitch_form=form)
+
+@main.route('/pitch/comment/<int:id>', methods = ['GET','POST'])
+@login_required
+def new_comment(id):
+    form = CommentForm()
+    pitch = Pitch.query.get(id)
+
+    if form.validate_on_submit():
+        comment = form.comment.data
+        user_id = current_user._get_current_object().id
+        new_comment = Comment(comment=comment, pitch_id=pitch, user_id = user_id)
+        new_comment.save_comment()
+        return redirect(url_for('main.comments'))
+
+    return render_template('comments.html', form=form)

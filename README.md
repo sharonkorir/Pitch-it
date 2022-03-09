@@ -47,7 +47,7 @@ In order for you to use the content on this repo ensure you have the following:
 
 ## Live link
 
-
+https://pitch-app-sh.herokuapp.com/
 
 ## Technologies used
 

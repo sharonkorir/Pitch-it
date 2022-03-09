@@ -20,7 +20,10 @@
             <ul>
                 {% if comments %} 
                   {% for comment in comments %}
-                    <li>{{comment.comment}}</li>
+                    <li>
+                      <p>{{comment.comment}}</p>
+                      <p>Posted by: {{user.username}}</p>
+                    </li>
                   {% endfor %}
                 {% endif %}
             </ul>

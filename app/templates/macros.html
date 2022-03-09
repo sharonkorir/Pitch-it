@@ -2,15 +2,17 @@
 
   {%if pitch%}
     {%for pitches in pitch%}
-    <div class="card">
-      <div class="card-header">{{pitches.title}}</div>
-      <div class="card-body">
-        <p class="card-title">{{pitches.content}}</p>
-        <p>{{pitches.category}}</p>
-        <p>Submitted by:{{pitches.user.username}}</p>
-        <p></p>
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-header">{{pitches.title}}</div>
+        <div class="card-body">
+          <p class="card-title">{{pitches.content}}</p>
+          <p>{{pitches.category}}</p>
+          <p>Submitted by:{{pitches.user.username}}</p>
+          <p></p>
+        </div>
+        <p><a class="btn btn-warning" href="{{url_for('main.new_comment', pitch_id = pitches.id)}}" role="button">Leave a comment</a></p>
       </div>
-      <p><a class="btn btn-warning" href="{{url_for('main.new_comment', pitch_id = pitches.id)}}" role="button">Leave a comment</a></p>
     </div>
     {%endfor%}
   {%else%}

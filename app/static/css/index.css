@@ -1,0 +1,12 @@
+.card {
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background-color: #e6eaeb;
+  font-size: 16px;
+  min-height: 250px;
+}
+
+.navbar{
+  margin-bottom: 0px;
+}

@@ -22,7 +22,7 @@ class ProdConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
-    pass
+    SQLALCHEMY_DATABASE_URI = 'postgres://ruzplugpqreskf:f4c3d3345a72784dc0eea6ecdfa509449c388c7a01b69650dfa9db0ec991a000@ec2-52-44-209-165.compute-1.amazonaws.com:5432/dm0ae61uqj0b5'
 
 class TestConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://sharon:12345678@localhost/pitchapp_test'

@@ -23,13 +23,14 @@
     <div class="containter">
       <div id="categories">
         <ul style="display: flex; justify-content: space-between;">
-          <li><a class="dropdown-item" href="#general">General</a></li>
-          <li><a class="dropdown-item" href="#business">Business/start-up</a></li>
-          <li><a class="dropdown-item" href="#pick-up">Pick-up lines</a></li>
-          <li><a class="dropdown-item" href="#books">Books/movies</a></li>
-          <li><a class="dropdown-item" href="#dad-jokes">Dad jokes</a></li>
+          <li><a class="dropdown-item" href="#general"><h3>General</h3></a></li>
+          <li><a class="dropdown-item" href="#business"><h3>Business/start-up</h3></a></li>
+          <li><a class="dropdown-item" href="#pick-up"><h3>Pick-up lines</h3></a></li>
+          <li><a class="dropdown-item" href="#books"><h3>Books/movies</h3></a></li>
+          <li><a class="dropdown-item" href="#dad-jokes"><h3>Dad jokes</h3></a></li>
         </ul>
       </div>
+      <hr>
       <div>
         <div class="row">
           <h1>General:</h1>
@@ -47,10 +48,10 @@
           <h1>Book/movie ideas:</h1>
           <div class="col" id="books">{{ macro.displayPitch(books) }}</div>
         </div>
-        <ul>
+        <div class="row">
           <h1>Dad jokes:</h1>
           <div class="col" id="dad-jokes">{{ macro.displayPitch(dad_jokes) }}</div>
-        </ul>
+        </div>
           
       </div> 
     </div>

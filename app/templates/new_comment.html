@@ -28,7 +28,7 @@
                   {% for comment in comments %}
                     <li>
                       <p>{{comment.comment}}</p>
-                      <p>Posted by: {{user.username}}</p>
+                      <p>Posted by: {{comment.user.username}}</p>
                     </li>
                   {% endfor %}
                 {%else%}

@@ -1,6 +1,6 @@
 from random import choices
 from flask_wtf import FlaskForm
-from wtforms import StringField, TextAreaField, SubmitField
+from wtforms import StringField, TextAreaField, SubmitField, SelectField
 from wtforms.validators import DataRequired
 
 class UpdateProfile(FlaskForm):
@@ -10,7 +10,8 @@ class UpdateProfile(FlaskForm):
 class PitchForm(FlaskForm):
 
     title = StringField('Pitch title',validators=[DataRequired()])
-    category = StringField('Select category: (dad jokes, general, business/tech, books/movies, pick-up)', validators=[DataRequired()])
+    category = SelectField('Select category:', choices=[('general', 'general'), ('business', 'business'), ('dad jokes', 'dad jokes'), ('books/movies', 'books/movies'), ('pick-up', 'pick-up')] ,validators=[DataRequired()])
+
     content = TextAreaField('Your pitch', validators=[DataRequired()])
     submit = SubmitField('Submit')
 

@@ -28,7 +28,7 @@ In order for you to use the content on this repo ensure you have the following:
   ```
 * Navigate to the Pitch-it directory and install requirements
   ```bash
-  cd pitch-world
+  cd pitch-it
   pip install -r requirements.txt
   ```
 * Running the application
